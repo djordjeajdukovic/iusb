@@ -22,7 +22,7 @@
                            Text="Login" />
                 <TextBlock Margin="0,6,0,18"
                            Foreground="#5C6B76"
-                           Text="Simple CMS for electric vehicles" />
+                           Text="Enter your username and password" />
 
                 <Label Content="Username" />
                 <TextBox x:Name="UsernameTextBox"
@@ -47,7 +47,7 @@
                         Background="#EDF3F7">
                     <TextBlock Foreground="#41525F"
                                TextWrapping="Wrap">
-                        Demo users: admin/admin and visitor/visitor
+                        Users(username/password): admin/admin , visitor/visitor
                     </TextBlock>
                 </Border>
 
