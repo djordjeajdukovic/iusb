@@ -1,0 +1,218 @@
+
+<Page x:Class="ElectricVehicleCms.Pages.AddEditVehiclePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:fa5="http://schemas.fontawesome.com/icons/"
+      mc:Ignorable="d"
+      Background="{StaticResource SurfaceBrush}">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Margin="18">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <DockPanel Grid.Row="0" Margin="0,0,0,14">
+                <TextBlock x:Name="PageTitleTextBlock"
+                           FontSize="28"
+                           FontWeight="SemiBold"
+                           Foreground="{StaticResource PrimaryBrush}"
+                           Text="Add electric vehicle" />
+
+                <Button DockPanel.Dock="Right"
+                        Width="100"
+                        Style="{StaticResource SecondaryButtonStyle}"
+                        Click="BackButton_Click"
+                        ToolTip="Go back"
+                        Content="Back" />
+            </DockPanel>
+
+            <Border Grid.Row="1"
+                    Padding="20"
+                    Background="{StaticResource CardBrush}"
+                    BorderBrush="#D5DEE5"
+                    BorderThickness="1"
+                    CornerRadius="18">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2.5*" />
+                        <ColumnDefinition Width="1.2*" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0" Margin="0,0,20,0">
+                        <Label Content="Vehicle name" />
+                        <TextBox x:Name="NameTextBox"
+                                 Height="32"
+                                 ToolTip="Enter vehicle name" />
+                        <Label x:Name="NameErrorLabel"
+                               Foreground="{StaticResource DangerBrush}"
+                               Content="" />
+
+                        <Label Content="Manufacturer" />
+                        <TextBox x:Name="ManufacturerTextBox"
+                                 Height="32"
+                                 ToolTip="Enter manufacturer" />
+                        <Label x:Name="ManufacturerErrorLabel"
+                               Foreground="{StaticResource DangerBrush}"
+                               Content="" />
+
+                        <Label Content="Range (km)" />
+                        <TextBox x:Name="RangeTextBox"
+                                 Height="32"
+                                 ToolTip="Enter vehicle range in kilometers" />
+                        <Label x:Name="RangeErrorLabel"
+                               Foreground="{StaticResource DangerBrush}"
+                               Content="" />
+
+                        <Label Content="Image" />
+                        <DockPanel Margin="0,0,0,4">
+                            <TextBox x:Name="SelectedImageTextBox"
+                                     Height="32"
+                                     IsReadOnly="True"
+                                     ToolTip="Selected image path" />
+                            <Button DockPanel.Dock="Right"
+                                    Width="90"
+                                    Margin="8,0,0,0"
+                                    Style="{StaticResource PrimaryButtonStyle}"
+                                    Click="ChooseImageButton_Click"
+                                    ToolTip="Choose image from disk"
+                                    Content="Browse" />
+                        </DockPanel>
+                        <Label x:Name="ImageErrorLabel"
+                               Foreground="{StaticResource DangerBrush}"
+                               Content="" />
+
+                        <Label Content="Detailed description" />
+                        <ToolBar x:Name="EditorToolBar">
+                            <ToggleButton x:Name="BoldToggleButton"
+                                          Command="EditingCommands.ToggleBold"
+                                          ToolTip="Bold">
+                                <fa5:SvgAwesome Height="14"
+                                                Foreground="Black"
+                                                Icon="Solid_Bold" />
+                            </ToggleButton>
+                            <ToggleButton x:Name="ItalicToggleButton"
+                                          Command="EditingCommands.ToggleItalic"
+                                          ToolTip="Italic">
+                                <fa5:SvgAwesome Height="14"
+                                                Foreground="Black"
+                                                Icon="Solid_Italic" />
+                            </ToggleButton>
+                            <ToggleButton x:Name="UnderlineToggleButton"
+                                          Command="EditingCommands.ToggleUnderline"
+                                          ToolTip="Underline">
+                                <fa5:SvgAwesome Height="14"
+                                                Foreground="Black"
+                                                Icon="Solid_Underline" />
+                            </ToggleButton>
+                            <Separator />
+                            <ComboBox x:Name="FontFamilyComboBox"
+                                      Width="160"
+                                      IsEditable="True"
+                                      IsTextSearchEnabled="True"
+                                      IsTextSearchCaseSensitive="False"
+                                      SelectionChanged="FontFamilyComboBox_SelectionChanged"
+                                      ToolTip="Choose font">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock MaxWidth="180"
+                                                   FontFamily="{Binding Source}"
+                                                   Text="{Binding Source}" />
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                            <Separator />
+                            <ComboBox x:Name="FontSizeComboBox"
+                                      Width="75"
+                                      SelectionChanged="FontSizeComboBox_SelectionChanged"
+                                      ToolTip="Choose font size" />
+                            <Separator />
+                            <ComboBox x:Name="ColorComboBox"
+                                      Width="170"
+                                      SelectionChanged="ColorComboBox_SelectionChanged"
+                                      ToolTip="Choose text color">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Rectangle Width="18"
+                                                       Height="18"
+                                                       Margin="0,0,6,0"
+                                                       Stroke="Black"
+                                                       StrokeThickness="0.4"
+                                                       Fill="{Binding Brush}" />
+                                            <TextBlock VerticalAlignment="Center"
+                                                       Text="{Binding Name}" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                            <Rectangle x:Name="SelectedColorRectangle"
+                                       Width="22"
+                                       Height="22"
+                                       Margin="8,0,0,0"
+                                       Stroke="Black"
+                                       StrokeThickness="0.5"
+                                       Fill="Black" />
+                        </ToolBar>
+
+                        <RichTextBox x:Name="DescriptionRichTextBox"
+                                     Height="220"
+                                     Margin="0,8,0,0"
+                                     SelectionChanged="DescriptionRichTextBox_SelectionChanged"
+                                     TextChanged="DescriptionRichTextBox_TextChanged"
+                                     ToolTip="Write detailed description" />
+
+                        <StatusBar Margin="0,0,0,4">
+                            <StatusBarItem>
+                                <TextBlock x:Name="WordCountTextBlock"
+                                           Text="Words: 0" />
+                            </StatusBarItem>
+                        </StatusBar>
+
+                        <Label x:Name="DescriptionErrorLabel"
+                               Foreground="{StaticResource DangerBrush}"
+                               Content="" />
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1">
+                        <TextBlock FontSize="18"
+                                   FontWeight="SemiBold"
+                                   Foreground="{StaticResource PrimaryBrush}"
+                                   Text="Image preview" />
+                        <Border Margin="0,10,0,8"
+                                Padding="8"
+                                Height="220"
+                                BorderBrush="#D5DEE5"
+                                BorderThickness="1"
+                                CornerRadius="16"
+                                Background="#FAFCFD">
+                            <Image x:Name="PreviewImage"
+                                   Stretch="Uniform" />
+                        </Border>
+
+                        <TextBlock TextWrapping="Wrap"
+                                   Foreground="#5C6B76"
+                                   Text="Use relevant images and write a short formatted description about the selected electric vehicle." />
+
+                        <StackPanel Margin="0,18,0,0"
+                                    HorizontalAlignment="Right">
+                            <Button x:Name="SaveButton"
+                                    Width="120"
+                                    Style="{StaticResource PrimaryButtonStyle}"
+                                    Click="SaveButton_Click"
+                                    ToolTip="Save changes"
+                                    Content="Save" />
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
+    </ScrollViewer>
+</Page>

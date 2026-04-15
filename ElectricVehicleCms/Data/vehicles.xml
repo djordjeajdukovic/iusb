@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfElectricVehicle xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ElectricVehicle>
+    <Name>Tesla Model 3</Name>
+    <Manufacturer>Tesla</Manufacturer>
+    <RangeKm>513</RangeKm>
+    <ImagePath>Data\Images\tesla_model_3.png</ImagePath>
+    <RtfPath>Data\Rtf\tesla_model_3.rtf</RtfPath>
+    <DateAdded>2026-04-01T10:15:00</DateAdded>
+  </ElectricVehicle>
+  <ElectricVehicle>
+    <Name>Nissan Leaf</Name>
+    <Manufacturer>Nissan</Manufacturer>
+    <RangeKm>385</RangeKm>
+    <ImagePath>Data\Images\nissan_leaf.png</ImagePath>
+    <RtfPath>Data\Rtf\nissan_leaf.rtf</RtfPath>
+    <DateAdded>2026-04-02T12:30:00</DateAdded>
+  </ElectricVehicle>
+  <ElectricVehicle>
+    <Name>Hyundai Kona Electric</Name>
+    <Manufacturer>Hyundai</Manufacturer>
+    <RangeKm>484</RangeKm>
+    <ImagePath>Data\Images\hyundai_kona_electric.png</ImagePath>
+    <RtfPath>Data\Rtf\hyundai_kona_electric.rtf</RtfPath>
+    <DateAdded>2026-04-03T09:45:00</DateAdded>
+  </ElectricVehicle>
+</ArrayOfElectricVehicle>

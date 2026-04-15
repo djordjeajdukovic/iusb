@@ -1,0 +1,70 @@
+
+<Page x:Class="ElectricVehicleCms.Pages.LoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      mc:Ignorable="d"
+      Background="{StaticResource SurfaceBrush}">
+    <Grid>
+        <Border Width="420"
+                Padding="26"
+                Background="{StaticResource CardBrush}"
+                BorderBrush="#D5DEE5"
+                BorderThickness="1"
+                CornerRadius="18"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+            <StackPanel>
+                <TextBlock FontSize="28"
+                           FontWeight="SemiBold"
+                           Foreground="{StaticResource PrimaryBrush}"
+                           Text="Login" />
+                <TextBlock Margin="0,6,0,18"
+                           Foreground="#5C6B76"
+                           Text="Simple CMS for electric vehicles" />
+
+                <Label Content="Username" />
+                <TextBox x:Name="UsernameTextBox"
+                         Height="32"
+                         Margin="0,0,0,4"
+                         ToolTip="Enter username" />
+
+                <Label Content="Password" />
+                <PasswordBox x:Name="PasswordBox"
+                             Height="32"
+                             Margin="0,0,0,4"
+                             ToolTip="Enter password" />
+
+                <Label x:Name="LoginErrorLabel"
+                       Margin="0,4,0,4"
+                       Foreground="{StaticResource DangerBrush}"
+                       Content="" />
+
+                <Border Margin="0,6,0,10"
+                        Padding="10"
+                        CornerRadius="10"
+                        Background="#EDF3F7">
+                    <TextBlock Foreground="#41525F"
+                               TextWrapping="Wrap">
+                        Demo users: admin/admin and visitor/visitor
+                    </TextBlock>
+                </Border>
+
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Right">
+                    <Button Width="100"
+                            Style="{StaticResource SecondaryButtonStyle}"
+                            Click="ExitButton_Click"
+                            ToolTip="Close application"
+                            Content="Exit" />
+                    <Button Width="100"
+                            Style="{StaticResource PrimaryButtonStyle}"
+                            Click="LoginButton_Click"
+                            ToolTip="Login to the system"
+                            Content="Login" />
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>
